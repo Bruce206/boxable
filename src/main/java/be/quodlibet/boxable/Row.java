@@ -4,15 +4,14 @@
  */
 package be.quodlibet.boxable;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
+import be.quodlibet.boxable.image.Image;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.interactive.documentnavigation.outline.PDOutlineItem;
 
-import be.quodlibet.boxable.image.Image;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Row<T extends PDPage> {
 
@@ -22,6 +21,7 @@ public class Row<T extends PDPage> {
 	private boolean headerRow = false;
 	float height;
 	private float lineSpacing = 1;
+	private boolean noBreak;
 
 	Row(Table<T> table, List<Cell<T>> cells, float height) {
 		this.table = table;
@@ -285,4 +285,12 @@ public class Row<T extends PDPage> {
 	public void setLineSpacing(float lineSpacing) {
 		this.lineSpacing = lineSpacing;
 	}
+
+    public boolean isNoBreak() {
+        return noBreak;
+    }
+
+    public void setNoBreak(boolean noBreak) {
+        this.noBreak = noBreak;
+    }
 }

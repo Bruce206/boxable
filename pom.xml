@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
-
     <parent>
         <groupId>org.sonatype.oss</groupId>
         <artifactId>oss-parent</artifactId>
-        <version>9</version>    
+        <version>9</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.github.dhorions</groupId>
+    <groupId>de.bruli</groupId>
     <artifactId>boxable</artifactId>
-    <version>1.6</version>
+    <version>1.61</version>
     <packaging>jar</packaging>
 
     <name>Boxable, a high-level API to creates table on top of Apache Pdfbox</name>
@@ -64,9 +62,9 @@
         </dependency>
     </dependencies>
     <distributionManagement>
-  <snapshotRepository>
-        <id>ossrh</id>
-        <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
         </snapshotRepository>
     </distributionManagement>
     <build>
@@ -91,9 +89,6 @@
                 <configuration>
                     <source>1.7</source>
                     <target>1.7</target>
-                    <compilerArguments>
-                        <bootclasspath>${sun.boot.class.path}${path.separator}${java.home}/lib/jfxrt.jar</bootclasspath>
-                    </compilerArguments>
                 </configuration>
             </plugin>
             <plugin>
@@ -117,37 +112,11 @@
                 <version>1.6.3</version>
                 <extensions>true</extensions>
                 <configuration>
-                  <serverId>ossrh</serverId>
-                  <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                  <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                    <serverId>ossrh</serverId>
+                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-gpg-plugin</artifactId>
-                <version>1.5</version>
-                <executions>
-                  <execution>
-                    <id>sign-artifacts</id>
-                    <phase>verify</phase>
-                    <goals>
-                      <goal>sign</goal>
-                    </goals>
-                  </execution>
-                </executions>
-              </plugin>
-              <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <executions>
-                        <execution>
-                                <id>attach-javadocs</id>
-                                <goals>
-                                        <goal>jar</goal>
-                                </goals>
-                        </execution>
-                </executions>
-		</plugin>
         </plugins>
     </build>
     <properties>
